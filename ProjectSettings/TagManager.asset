@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - GraduationTrigger
+  - StudyingTrigger
+  - BrokeTrigger
+  - SportsTrigger
+  - UniversityTrigger
+  - PartyingTrigger
+  - BedroomTrigger
   layers:
   - Default
   - TransparentFX
