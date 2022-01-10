@@ -22,7 +22,7 @@ public class Typer : MonoBehaviour
     public string keysPressed;
     public int posCounter = 1;
 
-    public bool canMove = false;
+    //public bool canMove = false;
     public bool chooseWord = false;
 
     private void Start()
@@ -90,6 +90,8 @@ public class Typer : MonoBehaviour
                 wordOutputBackground.gameObject.SetActive(false);
                 //CanMove();
                 posCounter += 1;
+                Debug.Log("posCounter Check");
+                _movement.canMove = true;
                 _movement.showButtons = true;
                 //Instantiate(triggerScript.currentParticle, triggerScript.particlePosition.transform.position, Quaternion.identity);
                 
@@ -155,6 +157,7 @@ public class Typer : MonoBehaviour
 
         chooseWord = false;
         SetCurrentWord();
+        RemoveLetter();
 
         wordBank.option1txt.gameObject.SetActive(false);
         wordBank.option2txt.gameObject.SetActive(false);

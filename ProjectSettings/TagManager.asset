@@ -11,6 +11,8 @@ TagManager:
   - UniversityTrigger
   - PartyingTrigger
   - BedroomTrigger
+  - TrainingTrigger
+  - RecruitmentTrigger
   layers:
   - Default
   - TransparentFX

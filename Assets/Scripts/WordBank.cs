@@ -133,7 +133,6 @@ public class WordBank : MonoBehaviour
             {
                 workingWords.Clear();
                 workingWords.AddRange(words2);
-                Debug.Log("it works words2");
                 option1txt.text = workingWords[0];
                 option2txt.text = workingWords[1];
             }
@@ -148,7 +147,6 @@ public class WordBank : MonoBehaviour
             {
                 workingWords.Clear();
                 workingWords.AddRange(words4);
-                Debug.Log("it works words2");
                 option1txt.text = workingWords[0];
                 option2txt.text = workingWords[1];
             }

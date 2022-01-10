@@ -102,6 +102,22 @@ public class Triggers : MonoBehaviour
             StartCoroutine(canTypeWait());
         }
 
+        if (other.tag == "TrainingTrigger")
+        {
+            Instantiate(money1Particle, particlePosition.transform.position, Quaternion.identity);
+
+            scoreSystem.money1 = true;
+            scoreSystem.money2 = false;
+            scoreSystem.loseMoney = false;
+
+            scoreSystem.GiveScore();
+            wordBank.wordListNum = 6;
+            wordBank.needWords = true;
+            typer.chooseWord = true;
+
+            StartCoroutine(canTypeWait());
+        }
+
         if (other.tag == "GraduationTrigger")
         {
             Instantiate(money2Particle, particlePosition.transform.position, Quaternion.Euler(new Vector3(-65, 0, 0)));
@@ -119,6 +135,17 @@ public class Triggers : MonoBehaviour
 
             scoreSystem.money1 = false;
             scoreSystem.money2 = false;
+            scoreSystem.loseMoney = true;
+
+            scoreSystem.GiveScore();
+        }
+
+        if (other.tag == "RecruitmentTrigger")
+        {
+            Instantiate(money2Particle, particlePosition.transform.position, Quaternion.identity);
+
+            scoreSystem.money1 = false;
+            scoreSystem.money2 = true;
             scoreSystem.loseMoney = true;
 
             scoreSystem.GiveScore();
