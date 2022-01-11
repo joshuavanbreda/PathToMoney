@@ -91,6 +91,7 @@ public class Typer : MonoBehaviour
                 //CanMove();
                 posCounter += 1;
                 Debug.Log("posCounter Check");
+                _movement.needSpawn = true;
                 _movement.canMove = true;
                 _movement.showButtons = true;
                 //Instantiate(triggerScript.currentParticle, triggerScript.particlePosition.transform.position, Quaternion.identity);
