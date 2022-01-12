@@ -23,7 +23,7 @@ namespace VirtualKeyboard
 #if !UNITY_IOS || UNITY_EDITOR
             inputAnswer.onFocusSelectAll = false;
 
-            keyboard.gameObject.SetActive(true);
+            keyboard.gameObject.SetActive(false);
             keyboard.onKeyPressEvent = (string character) => {
                 inputAnswer.text += character;
 

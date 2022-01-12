@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Triggers : MonoBehaviour
 {
+    public GameController gameController;
     public Typer typer;
     public WordBank wordBank;
     public ScoreSystem scoreSystem;
@@ -127,6 +128,8 @@ public class Triggers : MonoBehaviour
             scoreSystem.loseMoney = false;
 
             scoreSystem.GiveScore();
+
+            StartCoroutine(restartWait());
         }
 
         if (other.tag == "BrokeTrigger")
@@ -138,6 +141,8 @@ public class Triggers : MonoBehaviour
             scoreSystem.loseMoney = true;
 
             scoreSystem.GiveScore();
+
+            StartCoroutine(restartWait());
         }
 
         if (other.tag == "RecruitmentTrigger")
@@ -149,6 +154,8 @@ public class Triggers : MonoBehaviour
             scoreSystem.loseMoney = true;
 
             scoreSystem.GiveScore();
+
+            StartCoroutine(restartWait());
         }
     }
 
@@ -170,5 +177,11 @@ public class Triggers : MonoBehaviour
         wordBank.option1txt.gameObject.SetActive(true);
         wordBank.option2txt.gameObject.SetActive(true);
         wordBank.chooseOptiontxt.gameObject.SetActive(true);
+    }
+
+    public IEnumerator restartWait()
+    {
+        yield return new WaitForSeconds(3f);
+        gameController.restartBtn.gameObject.SetActive(true);
     }
 }

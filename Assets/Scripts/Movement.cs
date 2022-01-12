@@ -33,13 +33,12 @@ public class Movement : MonoBehaviour
     public GameObject room3Anim;
     public GameObject room4Anim;
     public GameObject room5Anim;
+    public GameObject room6Anim;
     public GameObject room7Anim;
     public GameObject room8Anim;
+    public GameObject room9Anim;
 
     private GameObject tempAnim;
-
-    public GameObject cube1;
-    public GameObject cube2;
 
 
     public bool canMove = false;
@@ -63,9 +62,9 @@ public class Movement : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector3 c = cube1.transform.position;
-        Vector3 d = cube2.transform.position;
-        cube1.transform.position = Vector3.MoveTowards(c, d, t);
+        //Vector3 c = cube1.transform.position;
+        //Vector3 d = cube2.transform.position;
+        //cube1.transform.position = Vector3.MoveTowards(c, d, t);
         //if (wordBank.workingWords == wordBank.words1)
         //{
         //    if (wordBank.isFirstWord) ;
@@ -217,6 +216,14 @@ public class Movement : MonoBehaviour
                 }
                 if (canMove == true && wordBank.isSecondWord)
                 {
+                    if (needSpawn == true)
+                    {
+                        Destroy(tempAnim);
+                        tempAnim = Instantiate(room6Anim, point6.transform.position, Quaternion.identity);
+                        //Destroy(room3Anim);
+
+                        needSpawn = false;
+                    }
 
                     trainingCeiling.SetActive(false);
                     Vector3 a = transform.position;
@@ -348,6 +355,15 @@ public class Movement : MonoBehaviour
                 }
                 if (canMove == true && wordBank.isSecondWord)
                 {
+                    if (needSpawn == true)
+                    {
+                        Destroy(tempAnim);
+                        tempAnim = Instantiate(room9Anim, point9.transform.position, Quaternion.identity);
+                        //Destroy(room3Anim);
+
+                        needSpawn = false;
+                    }
+
                     recruitmentCeiling.SetActive(false);
                     Vector3 a = transform.position;
                     Vector3 b = point9.position;

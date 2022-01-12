@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Typer : MonoBehaviour
 {
+    public GameController gameController;
     public Triggers triggerScript;
     public VirtualKeyboard.KeyboardFunc keyboard;
     public Movement _movement;
@@ -30,6 +31,11 @@ public class Typer : MonoBehaviour
         //SetCurrentWord();
         //wordOutput.gameObject.SetActive(false);\
         //wordOutputBackground.gameObject.SetActive(true);
+
+        wordBank.option1txt.gameObject.SetActive(false);
+        wordBank.option2txt.gameObject.SetActive(false);
+        wordBank.chooseOptiontxt.gameObject.SetActive(false);
+
     }
 
     private void SetCurrentWord()
@@ -48,6 +54,14 @@ public class Typer : MonoBehaviour
 
     private void Update()
     {
+        if (gameController.startGame == true)
+        {
+            keyboard.gameObject.SetActive(true);
+            wordBank.option1txt.gameObject.SetActive(true);
+            wordBank.option2txt.gameObject.SetActive(true);
+            wordBank.chooseOptiontxt.gameObject.SetActive(true);
+            gameController.startGame = false;
+        }
         CheckInput();
         //Instantiate(scoreSystem.money1Particle, scoreSystem.particlePosition.transform.position, Quaternion.identity);
     }
